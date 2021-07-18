@@ -6,15 +6,14 @@ import { HttpClient } from '@angular/common/http';
   template: `
     <div>
       <h1>Http Interceptor</h1>
-
-      <h2>Regular response:</h2>
+      <h2>Http Response Strigified:</h2>
       <pre *ngFor="let user of users" [innerHTML]="user | json"></pre>
     </div>
   `,
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public users: any = [];
+  public users = [];
 
   constructor(
     private httpClient: HttpClient
@@ -22,7 +21,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.httpClient.get('https://jsonplaceholder.typicode.com/users').subscribe(resp => this.users = resp);
+    this.httpClient.get('https://jsonplaceholder.typicode.com/users').subscribe((resp: object[]) => this.users = resp);
   }
 
 }
