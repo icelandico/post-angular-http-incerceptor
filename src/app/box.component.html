@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="box" [ngClass]="isActive && 'box--active'">
+  <h1>{{details.name}}</h1>
+  <button class="box__button" (click)="handleClick(details.name)">Make active</button>
+</div>
